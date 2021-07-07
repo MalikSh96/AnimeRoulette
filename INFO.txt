@@ -1,0 +1,2 @@
+If you have trouble accessing github from bash due to authentication issues:
+https://www.youtube.com/watch?v=JCcrdW4Llm0&t=11s&ab_channel=chinamatt

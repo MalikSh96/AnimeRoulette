@@ -1,0 +1,61 @@
+DATABASE: ANIME, KATEGOTI
+
+
+ANIME
+[ID
+TITLE
+DESCRIPTION
+KATEGORI_FK
+RELEASE DATE
+STUDIO
+path for cover image
+]
+
+KATEGOTI
+ID_PM
+GENRE 
+
+
+USER[
+ID
+EMAIL UNIQUE
+PASSWORD
+ROLW
+]
+
+
+project name: anime_roulette
+
+
+admin_side
+create
+delete
+update
+
+bruger_sider
+read
+
+
+anime random generator laves i backend (server side)
+
+
+
+login system prio
+
+STEP 0: GITHUB CI
+
+STEP 1: DATABASE
+
+STEP 2: API
+
+STEP 3: VIEW (mobile first)
+
+STEP 4: DOCKER, CD, SERVER
+------ extra features -------
+
+STEP 4: LOGIN (JWT)
+
+STEP 5: ADDS
+
+
+
