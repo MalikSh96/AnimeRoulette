@@ -1,2 +1,3 @@
-# Ignoring appsettings.json
+# Ignoring database related files
 AnimeRouletteAPI/AnimeRouletteAPI/appsettings.json
+AnimeRouletteAPI/.vs/AnimeRouletteAPI/v16/.suo
