@@ -199,11 +199,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\malik\\OneDrive\\Documents\\Projects\\AnimeRoulette\\AnimeRouletteAPI\\AnimeRouletteAPI\\AnimeRouletteAPI.csproj",
+      "projectUniqueName": "C:\\Users\\malik\\OneDrive\\Documents\\Projects\\AnimeRoulette\\AnimeRouletteAPI\\AnimeRouletteAPI.csproj",
       "projectName": "AnimeRouletteAPI",
-      "projectPath": "C:\\Users\\malik\\OneDrive\\Documents\\Projects\\AnimeRoulette\\AnimeRouletteAPI\\AnimeRouletteAPI\\AnimeRouletteAPI.csproj",
+      "projectPath": "C:\\Users\\malik\\OneDrive\\Documents\\Projects\\AnimeRoulette\\AnimeRouletteAPI\\AnimeRouletteAPI.csproj",
       "packagesPath": "C:\\Users\\malik\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\malik\\OneDrive\\Documents\\Projects\\AnimeRoulette\\AnimeRouletteAPI\\AnimeRouletteAPI\\obj\\",
+      "outputPath": "C:\\Users\\malik\\OneDrive\\Documents\\Projects\\AnimeRoulette\\AnimeRouletteAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
