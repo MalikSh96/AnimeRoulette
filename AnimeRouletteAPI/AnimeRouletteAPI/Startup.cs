@@ -29,7 +29,13 @@ namespace AnimeRouletteAPI
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+            //services.AddControllers();
+
+            services.AddControllers()
+                .AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                );
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "AnimeRouletteAPI", Version = "v1" });
@@ -38,8 +44,10 @@ namespace AnimeRouletteAPI
             //adding context class
             //opt = options
             services.AddDbContext<AnimeDB>(
-                opt => opt.UseSqlServer(Configuration.GetConnectionString("AnimeDB")) 
+                opt => opt.UseSqlServer(Configuration.GetConnectionString("AnimeDB"))
                 );
+
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

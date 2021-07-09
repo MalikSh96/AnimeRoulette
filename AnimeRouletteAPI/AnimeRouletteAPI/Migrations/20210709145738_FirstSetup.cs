@@ -13,7 +13,7 @@ namespace AnimeRouletteAPI.Migrations
                 {
                     AnimeID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Title = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Release = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Studio = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -45,7 +45,7 @@ namespace AnimeRouletteAPI.Migrations
                 {
                     CatID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Genre = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Genre = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Category = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>

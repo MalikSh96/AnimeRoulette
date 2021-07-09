@@ -12,7 +12,7 @@ namespace AnimeRouletteAPI.Models
         [Key]
         public int AnimeID { get; set; }
         [Required]
-        public string Title { get; set; }
+        public Guid Title { get; set; }
         public string Description { get; set; }
         public string Release { get; set; }
         public string Studio { get; set; }

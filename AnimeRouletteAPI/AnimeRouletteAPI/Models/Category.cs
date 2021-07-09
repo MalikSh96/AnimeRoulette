@@ -14,7 +14,7 @@ namespace AnimeRouletteAPI.Models
 
         //Setting fk restraints
         [ForeignKey("Anime")]
-        public string Genre { get; set; }
+        public Guid Genre { get; set; }
 
         //One category can have one anime
         //Using navigation property, virtual one

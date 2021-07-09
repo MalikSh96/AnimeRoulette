@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AnimeRouletteAPI.Migrations
 {
     [DbContext(typeof(AnimeDB))]
-    [Migration("20210707230617_FirstSetup")]
+    [Migration("20210709145738_FirstSetup")]
     partial class FirstSetup
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,9 +40,8 @@ namespace AnimeRouletteAPI.Migrations
                     b.Property<string>("Studio")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<Guid>("Title")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("AnimeID");
 
@@ -81,8 +80,8 @@ namespace AnimeRouletteAPI.Migrations
                     b.Property<int?>("Category")
                         .HasColumnType("int");
 
-                    b.Property<string>("Genre")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<Guid>("Genre")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("CatID");
 
