@@ -82,21 +82,29 @@ namespace AnimeRouletteAPI.Controllers
             {
                 throw new ArgumentException("Title Already Exist");
             }
-            var dbCats = _context.Categories.AsNoTracking().ToList(); // Category db table
-            var aCats = anime.Categories.ToList(); //aCats short for anime categories/genre
-            //looping our category db table for its categories/genres
-            foreach (var cat in dbCats)
+            var dbCategories = _context.Categories.AsNoTracking().ToList();
+            var animeCategories = anime.AnimeCategories.ToList(); //POST input
+            //looping through categories/genres IN anime input
+            for (var item = 0; item <= animeCategories.Count(); item++)
             {
-                //looping through categories/genres IN anime input
-                foreach (var item in aCats)
+                var itemToAdd = animeCategories.Where(x => x.CategoryId == item);
+                //looping our category db table for its categories/genres
+                foreach (var category in dbCategories)
                 {
-                    //compare input with db table entries, if they are equal
+                    var comparingInput = dbCategories.Where(c => c.CatID == item);
+                    //compare input with db table entries, if they are NOT equal
                     //comparing the db table entry WITH the post of anime
-                    if (cat.Genre.Equals(item.Genre))
+                    if (!category.Genre.Equals(comparingInput))
                     {
-                        //anime.Categories.Add(cat); //we assign the categories list to our anime categories
+                        animeCategories.Add((AnimeCategory)itemToAdd);
+                    }
+                    else
+                    {
+                        animeCategories = (List<AnimeCategory>)(ICollection<AnimeCategory>)animeCategories
+                            .SingleOrDefault(i => i.CategoryId == category.CatID);
                     }
                 }
+
             }
             _context.Animes.Add(anime);
             await _context.SaveChangesAsync();

@@ -19,7 +19,7 @@ namespace AnimeRouletteAPI.Models
         public DbSet<Anime> Animes { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<AppUser> Users { get; set; }
-        public DbSet<DTO> Dto { get; set; }
+        public DbSet<AnimeCategory> AnimeCategories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -30,6 +30,22 @@ namespace AnimeRouletteAPI.Models
             //modelBuilder.Entity<Category>()
             //    .HasOne(cat => cat.Anime)
             //    .WithMany(a => a.Categories);
+
+            //ac is short for anime categories, a = anime, c = category
+            modelBuilder.Entity<AnimeCategory>()
+                .HasKey(ac => new { ac.AnimeId, ac.CategoryId });
+            modelBuilder.Entity<AnimeCategory>()
+                .HasOne(ac => ac.Anime)
+                .WithMany(a => a.AnimeCategories)
+                .HasForeignKey(ac => ac.AnimeId);
+            modelBuilder.Entity<AnimeCategory>()
+                .HasOne(ac => ac.Category)
+                .WithMany(c => c.AnimeCategories)
+                .HasForeignKey(ac => ac.CategoryId);
+            //Link used
+            //h-ttps://www.learnentityframeworkcore.com/configuration/many-to-many-relationship-configuration
+            //58.25
+            //h-ttps://www.youtube.com/watch?v=W1sxepfIMRM&ab_channel=.NETFoundation
         }
     }
 }

@@ -10,7 +10,7 @@ namespace AnimeRouletteAPI.Models
     public class Anime
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int AnimeID { get; set; }
         [Required]
         public string Title { get; set; }
@@ -22,7 +22,7 @@ namespace AnimeRouletteAPI.Models
         //Setting fk restraints
         //One anime can have multiple categories
         //Using navigation property, virtual one 
-        //[ForeignKey("Animes")]
-        public virtual IEnumerable<Category> Categories { get; set; }
+        //[ForeignKey("Category")]
+        public virtual ICollection<AnimeCategory> AnimeCategories { get; set; }
     }
 }

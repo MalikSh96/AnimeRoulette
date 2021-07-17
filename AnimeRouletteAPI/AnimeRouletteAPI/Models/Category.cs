@@ -10,7 +10,6 @@ namespace AnimeRouletteAPI.Models
     public class Category
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CatID { get; set; }
 
         //Setting fk restraints
@@ -18,7 +17,6 @@ namespace AnimeRouletteAPI.Models
         public string Genre { get; set; }
 
         //Using navigation property, virtual one
-        //[ForeignKey("Categories")]
-        public virtual IEnumerable<Anime> Animes { get; set; }
+        public virtual ICollection<AnimeCategory> AnimeCategories { get; set; }
     }
 }
