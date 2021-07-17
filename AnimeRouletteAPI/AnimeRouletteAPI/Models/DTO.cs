@@ -7,18 +7,15 @@ using System.Threading.Tasks;
 
 namespace AnimeRouletteAPI.Models
 {
-    public class Category
+    public class DTO
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int CatID { get; set; }
-
-        //Setting fk restraints
-        //[ForeignKey("Anime")]
-        public string Genre { get; set; }
-
-        //Using navigation property, virtual one
-        //[ForeignKey("Categories")]
+        public int ID { get; set; }
+        [ForeignKey("Title")]
+        public string AnimeTitle { get; set; }
+        [ForeignKey("Genre")]
+        public string AnimeGenre { get; set; }
         public virtual IEnumerable<Anime> Animes { get; set; }
+        public virtual IEnumerable<Category> Category { get; set; }
     }
 }

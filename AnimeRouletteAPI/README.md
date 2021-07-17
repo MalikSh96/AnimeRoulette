@@ -4,9 +4,10 @@
 Installed 4 `NuGet Packages`
 
 - Microsoft.EntityFrameworkCore v.5.0.7
-- Microsoft.EntityFrameworkCore v.5.0.7
-- Microsoft.EntityFrameworkCore v.5.0.7
-- Microsoft.EntityFrameworkCore v.5.0.7
+- Microsoft.EntityFrameworkCore.Tools v.5.0.7
+- Microsoft.EntityFrameworkCore.SqlServer v.5.0.7
+- Microsoft.EntityFrameworkCore.Design v.5.0.7
+- Microsoft.AspNetCore.Mvc.NewtonsoftJson v.5.0.7
 
 # Setting up Database
 Created `Models` folder which contains the classes that are the `database` tables
@@ -33,7 +34,7 @@ In the console manager:
 
  `update-database` <--updates the database to have the database and tables
 
-#### Warning thrown
+#### Warning thrown when using `add-migration` and `update-database`
 ```
 Microsoft.EntityFrameworkCore.Model[10613]
       The relationship was separated into two relationships because the [ForeignKey] attribute specified on the navigation 'Anime.Categories' doesn't match the [ForeignKey] attribute specified on the property 'Category.Genre'.
@@ -42,4 +43,8 @@ Microsoft.EntityFrameworkCore.Model[10613]
 ```
 
 ### Links used
-About configuring [relationships](https://docs.microsoft.com/en-us/ef/core/modeling/relationships?tabs=fluent-api%2Cfluent-api-simple-key%2Csimple-key) and also [this](https://www.entityframeworktutorial.net/efcore/configure-one-to-many-relationship-using-fluent-api-in-ef-core.aspx)
+About configuring [relationships](https://docs.microsoft.com/en-us/ef/core/modeling/relationships?tabs=fluent-api%2Cfluent-api-simple-key%2Csimple-key) and also [this](https://www.entityframeworktutorial.net/efcore/configure-one-to-many-relationship-using-fluent-api-in-ef-core.aspx).
+
+About [AsNoTracking()](https://stackoverflow.com/questions/48202403/instance-of-entity-type-cannot-be-tracked-because-another-instance-with-same-key).
+
+About [querying](https://stackoverflow.com/questions/24214860/entity-framework-an-error-occurred-while-updating-the-entries-see-the-inner) data.

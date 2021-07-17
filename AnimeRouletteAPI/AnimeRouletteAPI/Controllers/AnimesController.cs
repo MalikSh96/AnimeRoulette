@@ -77,7 +77,27 @@ namespace AnimeRouletteAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Anime>> PostAnime(Anime anime)
         {
-            //anime.Categories.Add()
+            //If the title of a given anime already exists
+            if (_context.Animes.Any(a => a.Title == anime.Title))
+            {
+                throw new ArgumentException("Title Already Exist");
+            }
+            var dbCats = _context.Categories.AsNoTracking().ToList(); // Category db table
+            var aCats = anime.Categories.ToList(); //aCats short for anime categories/genre
+            //looping our category db table for its categories/genres
+            foreach (var cat in dbCats)
+            {
+                //looping through categories/genres IN anime input
+                foreach (var item in aCats)
+                {
+                    //compare input with db table entries, if they are equal
+                    //comparing the db table entry WITH the post of anime
+                    if (cat.Genre.Equals(item.Genre))
+                    {
+                        //anime.Categories.Add(cat); //we assign the categories list to our anime categories
+                    }
+                }
+            }
             _context.Animes.Add(anime);
             await _context.SaveChangesAsync();
 

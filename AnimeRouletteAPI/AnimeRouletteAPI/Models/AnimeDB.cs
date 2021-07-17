@@ -19,12 +19,17 @@ namespace AnimeRouletteAPI.Models
         public DbSet<Anime> Animes { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<AppUser> Users { get; set; }
+        public DbSet<DTO> Dto { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Category>()
-                .HasOne(cat => cat.Anime)
-                .WithMany(a => a.Categories);
+            //modelBuilder.Entity<Anime>()
+            //    .HasMany(anime => anime.Categories)
+            //    .WithMany(category => category.Animes);
+
+            //modelBuilder.Entity<Category>()
+            //    .HasOne(cat => cat.Anime)
+            //    .WithMany(a => a.Categories);
         }
     }
 }
