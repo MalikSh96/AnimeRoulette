@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AnimeRouletteAPI.Migrations
 {
     [DbContext(typeof(AnimeDB))]
-    [Migration("20210717234527_FirstMigration")]
+    [Migration("20210718005042_FirstMigration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

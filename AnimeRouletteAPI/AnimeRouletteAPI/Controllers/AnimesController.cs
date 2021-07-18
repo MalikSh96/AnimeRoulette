@@ -83,28 +83,30 @@ namespace AnimeRouletteAPI.Controllers
                 throw new ArgumentException("Title Already Exist");
             }
             var dbCategories = _context.Categories.AsNoTracking().ToList();
-            var animeCategories = anime.AnimeCategories.ToList(); //POST input
-            //looping through categories/genres IN anime input
-            for (var item = 0; item <= animeCategories.Count(); item++)
+            var animeCategories = anime.AnimeCategories; //POST input
+            //looping our category db table for its categories/genres
+            foreach (var category in dbCategories)
             {
-                var itemToAdd = animeCategories.Where(x => x.CategoryId == item);
-                //looping our category db table for its categories/genres
-                foreach (var category in dbCategories)
+                //looping through categories/genres IN anime input
+                //item is just a counter
+                for (var item = 0; item <= animeCategories.Count(); item++)
                 {
-                    var comparingInput = dbCategories.Where(c => c.CatID == item);
+                    //Below throws NULL value currently
+                    var itemToAdd = animeCategories
+                        .Where(x => x.CategoryId == category.CatID)
+                        .FirstOrDefault();
+
+                    var comparingInput = dbCategories
+                        .Where(c => c.CatID == itemToAdd.CategoryId)
+                        .FirstOrDefault();
                     //compare input with db table entries, if they are NOT equal
                     //comparing the db table entry WITH the post of anime
                     if (!category.Genre.Equals(comparingInput))
                     {
-                        animeCategories.Add((AnimeCategory)itemToAdd);
-                    }
-                    else
-                    {
-                        animeCategories = (List<AnimeCategory>)(ICollection<AnimeCategory>)animeCategories
-                            .SingleOrDefault(i => i.CategoryId == category.CatID);
+                        dbCategories.Add(comparingInput);
+                        //animeCategories.Add(itemToAdd);
                     }
                 }
-
             }
             _context.Animes.Add(anime);
             await _context.SaveChangesAsync();
