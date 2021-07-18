@@ -9,11 +9,13 @@ namespace AnimeRouletteAPI.Models
 {
     public class Category
     {
-        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CatID { get; set; }
 
         //Setting fk restraints
         //[ForeignKey("Anime")]
+        [Key]
+        [Required]
         public string Genre { get; set; }
 
         //Using navigation property, virtual one

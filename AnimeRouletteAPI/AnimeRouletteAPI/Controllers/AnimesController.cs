@@ -93,24 +93,20 @@ namespace AnimeRouletteAPI.Controllers
                 //{
                 foreach (var item in animeCategories)
                 {
-                    //Below throws NULL value currently, since there is no value for new entries
-                    var itemToAdd = animeCategories
-                        .Where(x => x.CategoryName.Equals(category.Genre))
-                        .FirstOrDefault();
-
-                    var comparingInput = dbCategories
-                        .Where(c => c.CatID == itemToAdd.CategoryId)
-                        .FirstOrDefault();
-                    
-                    //compare input with db table entries, if they are NOT equal
-                    //comparing the db table entry WITH the post of anime
-                    if (!category.Genre.Equals(comparingInput))
+                    var inputGenre = item.Category.Genre; //input from POST
+                    //var existingGenre = category.Genre;
+                    var checkForExistingGenre = _context.Categories
+                        .AsNoTracking()
+                        .Where(x => x.Genre.Equals(inputGenre)).FirstOrDefault();
+                    if (checkForExistingGenre != null)
                     {
-                        dbCategories.Add(comparingInput);
-                        //animeCategories.Add(itemToAdd);
+                        //Handle the duplication entry here
+                        item.Category.Genre = checkForExistingGenre.Genre;
+                        anime.AnimeCategories.Add(item);
                     }
                 }
             }
+
             _context.Animes.Add(anime);
             await _context.SaveChangesAsync();
 

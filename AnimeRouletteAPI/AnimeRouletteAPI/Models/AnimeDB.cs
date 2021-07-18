@@ -33,7 +33,7 @@ namespace AnimeRouletteAPI.Models
 
             //ac is short for anime categories, a = anime, c = category
             modelBuilder.Entity<AnimeCategory>()
-                .HasKey(ac => new { ac.AnimeId, ac.CategoryId });
+                .HasKey(ac => new { ac.AnimeId, ac.CategoryName });
             modelBuilder.Entity<AnimeCategory>()
                 .HasOne(ac => ac.Anime)
                 .WithMany(a => a.AnimeCategories)
@@ -41,7 +41,7 @@ namespace AnimeRouletteAPI.Models
             modelBuilder.Entity<AnimeCategory>()
                 .HasOne(ac => ac.Category)
                 .WithMany(c => c.AnimeCategories)
-                .HasForeignKey(ac => ac.CategoryId);
+                .HasForeignKey(ac => ac.CategoryName);
             //Link used
             //h-ttps://www.learnentityframeworkcore.com/configuration/many-to-many-relationship-configuration
             //58.25

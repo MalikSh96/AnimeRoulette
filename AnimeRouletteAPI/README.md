@@ -1,13 +1,14 @@
 # README for AnimeRouletteAPI
 
 # Pre steps
-Installed 4 `NuGet Packages`
+Installed 4 necessary `NuGet Packages` + extra
 
-- Microsoft.EntityFrameworkCore v.5.0.7
-- Microsoft.EntityFrameworkCore.Tools v.5.0.7
-- Microsoft.EntityFrameworkCore.SqlServer v.5.0.7
-- Microsoft.EntityFrameworkCore.Design v.5.0.7
+1. Microsoft.EntityFrameworkCore v.5.0.7
+2. Microsoft.EntityFrameworkCore.Tools v.5.0.7
+3. Microsoft.EntityFrameworkCore.SqlServer v.5.0.7
+4. Microsoft.EntityFrameworkCore.Design v.5.0.7
 - Microsoft.AspNetCore.Mvc.NewtonsoftJson v.5.0.7
+- Microsoft.EntityFrameworkCore.Relational v.5.0.7
 
 # Setting up Database
 Created `Models` folder which contains the classes that are the `database` tables

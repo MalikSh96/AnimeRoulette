@@ -10,7 +10,8 @@ namespace AnimeRouletteAPI.Models
     public class Anime
     {
         [Key]
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //h-ttps://www.learnentityframeworkcore.com/configuration/data-annotation-attributes/databasegenerated-attribute
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int AnimeID { get; set; }
         [Required]
         public string Title { get; set; }
