@@ -89,16 +89,19 @@ namespace AnimeRouletteAPI.Controllers
             {
                 //looping through categories/genres IN anime input
                 //item is just a counter
-                for (var item = 0; item <= animeCategories.Count(); item++)
+                //for (var item = 0; item <= animeCategories.Count(); item++)
+                //{
+                foreach (var item in animeCategories)
                 {
-                    //Below throws NULL value currently
+                    //Below throws NULL value currently, since there is no value for new entries
                     var itemToAdd = animeCategories
-                        .Where(x => x.CategoryId == category.CatID)
+                        .Where(x => x.CategoryName.Equals(category.Genre))
                         .FirstOrDefault();
 
                     var comparingInput = dbCategories
                         .Where(c => c.CatID == itemToAdd.CategoryId)
                         .FirstOrDefault();
+                    
                     //compare input with db table entries, if they are NOT equal
                     //comparing the db table entry WITH the post of anime
                     if (!category.Genre.Equals(comparingInput))
